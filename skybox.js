@@ -1,6 +1,9 @@
+
+var backgroundnum = 0;
+
+
 AFRAME.registerComponent("skybox", {
     init: function () {
-        console.log('starting loop');
         SkyboxLoop();
     }
 })
@@ -21,7 +24,6 @@ function fade() {
 
 //Changes the background on set time
 function SkyboxLoop() {
-
     var backgroundEl = document.querySelector('#background');
     var backgroundEl1 = document.querySelector('#background1');//background1 is secondary background behind the main background.
     if (backgroundEl != null) {
@@ -36,17 +38,17 @@ function SkyboxLoop() {
         } else if (backgroundnum == 1) {
             setTimeout(fade)
             setTimeout(function () {
-                backgroundEl1.setAttribute('src', '#Blue');
+                backgroundEl1.setAttribute('src', '#Red');
             }, 4000);
-            backgroundEl.setAttribute('src', '#Blue');
+            backgroundEl.setAttribute('src', '#Red');
             backgroundnum += 1;
 
         } else if (backgroundnum == 2) {
             setTimeout(fade)
             setTimeout(function () {
-                backgroundEl1.setAttribute('src', '#Red');
+                backgroundEl1.setAttribute('src', '#Blue');
             }, 4000);
-            backgroundEl.setAttribute('src', '#Red');
+            backgroundEl.setAttribute('src', '#Blue');
             backgroundnum = 0;
 
         } else {
