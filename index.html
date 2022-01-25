@@ -16,6 +16,12 @@
             <img id="Black" src="https://i.ibb.co/Lnnw4gn/black.png" alt="black" border="0" crossorigin="anonymous">
             <img id="Blue" src="https://i.ibb.co/5WZ8nhp/blue.png" alt="blue" border="0" crossorigin="anonymous">
             <img id="Red" src="https://i.ibb.co/Xb37R6P/red.png" alt="red" border="0" crossorigin="anonymous">
+
+            <img id="FroggoScreen" src="images/Froggo.PNG" alt="Froggo" border="0" crossorigin="anonymous">
+            <img id="RelicsScreen" src="images/Relics of the abyss.PNG" alt="Relics" border="0" crossorigin="anonymous">
+            <img id="GobbosScreen" src="images/Too many gobbos.PNG" alt="Gobbos" border="0" crossorigin="anonymous">
+
+
             <a-mixin id="frame"
                      geometry="primitive: plane; width: 0.5783552; height: 0.8192"
                      material="color: white; shader: flat"
@@ -44,19 +50,19 @@
         <a-entity id="ui" position="0 0 0">
             <!-- Poster menu -->
             <a-entity id="menu" menubuttons>
-                <!--
-            <a-entity id="BlackButton" position="-2 0 0" rotation="0 90 0" mixin="frame" class="raycastable menu-button">
-                <a-entity material="src: #Black;" mixin="poster"></a-entity>
+                
+            <a-entity id="FroggoBtn" position="-2 0 0" rotation="0 90 0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #FroggoScreen;" mixin="poster"></a-entity>
             </a-entity>
 
-            <a-entity id="BlueButton" position="0 0 -2" rotation="0 0 0" mixin="frame" class="raycastable menu-button">
-                <a-entity material="src: #Blue" mixin="poster"></a-entity>
+            <a-entity id="RelicsBtn" position="0 0 -2" rotation="0 0 0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #RelicsScreen" mixin="poster"></a-entity>
             </a-entity>
 
-            <a-entity id="RedButton" position="2 0 0" rotation="0 -90 0" mixin="frame" class="raycastable menu-button">
-                <a-entity material="src: #Red" mixin="poster"></a-entity>
+            <a-entity id="GobbosBtn" position="2 0 0" rotation="0 -90 0" mixin="frame" class="raycastable menu-button">
+                <a-entity material="src: #GobbosScreen" mixin="poster"></a-entity>
             </a-entity>
-        -->
+        
             </a-entity>
 
 
