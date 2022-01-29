@@ -5,8 +5,10 @@
 		<title> Porfoliopage </title>
 		<meta charset="utf-8" />
 		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script> 
 
         <script src="skybox.js"></script>
+        <script src="menubuttons.js"></script>
         <script src="info-panels.js"></script>
 	</head>
 
@@ -21,7 +23,7 @@
             <img id="RelicsScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Relics%20of%20the%20abyss.PNG" alt="Relics" border="0" crossorigin="anonymous">
             <img id="GobbosScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Too%20many%20gobbos.PNG" alt="Gobbos" border="0" crossorigin="anonymous">
 
-
+            <!-- mixin styling -->
             <a-mixin id="Frame"
                      geometry="primitive: plane; width: 1.6; height: 1.05"
                      material="color: black; shader: flat"
@@ -30,20 +32,19 @@
                      geometry="primitive: plane; width: 1.55; height: 1"
                      material="color: white; shader: flat"
                      position="0 0 0.005"></a-mixin>
-            <a-mixin id="InfoText"
-                     geometry="primitive: plane; width: 1.25; height: 0.2"
-                     material="color: white; shader: flat"
-                     visible="true"
-                     position="0 0 0.001"></a-mixin>
-            <a-mixin id="GameImageWindow"
-                     geometry="primitive: plane; width: 1.5; height: 0.81"
-                     material="src: #Red; shader: flat; transparent: true"
-                     position="0 0.495 0.002"></a-mixin>
+            <a-mixin id="InfoGameImagemix"
+                     geometry="primitive: plane; width: 2; height: 1"
+                     material="color: white; shader: flat; transparent: true"
+                     position="0 0.5 0.005"></a-mixin>
+            <a-mixin id="InfoFramemix"
+                     geometry="primitive: plane; width: 2.1; height: 2"
+                     material="color: black; shader: flat;"
+                     position="0 0.05 0"></a-mixin>
         </a-assets>
 
 
         <a-entity id="ui" position="0 0 0">
-            <!-- Poster menu -->
+            <!-- Menubutton entities -->
             <a-entity id="menu" menubuttons>
                 
             <a-entity id="FroggoBtn" position="-2 0 0" rotation="0 90 0" mixin="Frame" class="raycastable menu-button">
@@ -56,6 +57,7 @@
 
             <a-entity id="GobbosBtn" position="2 0 0" rotation="0 -90 0" mixin="Frame" class="raycastable menu-button">
                 <a-entity material="src: #GobbosScreen" mixin="GameImage"></a-entity>
+                
             </a-entity>
         
             </a-entity>
@@ -76,6 +78,32 @@
 
 
             <a-entity look-controls="reverseMouseDrag: true" class="raycastable" camera="" position="" wasd-controls-enabled="false" rotation="-11.11538122553796 15.240677350479807 0" mouse-cursor cursor="rayOrigin: mouse;  fuse: false" raycaster="objects: .raycastable" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
+            <a-entity id="infoPanel"
+                          class="raycastable"
+                          position="0 0 -1.5"
+                          info-panels
+                          visible="false"
+                          scale="0.001 0.001 0.001"
+                          geometry="primitive: plane; width: 2; height: 1.8"
+                          material="color: #3179b0; shader: flat; transparent: false">
+                    <a-entity id="InfoFrame" mixin="InfoFramemix" visible="true"></a-entity>
+                    <a-entity id="InfoGameImage" mixin="InfoGameImagemix" material="src: #FroggoScreen" visible="true"></a-entity>
+                    <a-entity id="GameTitle"
+                              position="-0.90 -0.1 0"
+                              text="shader: msdf; negate: false; anchor: left; width: 1.7;font: mozillavr; color: black; value: Test" > </a-entity>
+                    <a-entity id="GameDescription"
+                          position="-0.85 -0.22 0"
+                          scale= "1.5 1.4 1"
+                          text="baseline: top; negate: false; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
+                    </a-entity>
+                    <a-entity id="Downloadtxt"
+                          position="-0.85 -0.80 0"
+                          scale= "1 1 1"
+                          visible="false"
+                          text="baseline: top; negate: false; width: 1.7; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Click on this infoscreen to open download page.">
+                    </a-entity>
+                </a-entity>
+            
             </a-entity>
         </a-entity>
     </a-scene>
