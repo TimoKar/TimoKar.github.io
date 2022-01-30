@@ -18,7 +18,6 @@ AFRAME.registerComponent('info-panels', {
     Titletxt = document.querySelector('#GameTitle');
     downloadtxt = document.querySelector('#Downloadtxt');
 
-    console.log(ImageElement);
     //Setup infopanel & print data
     this.el.object3D.renderOrder = 9999999;
     this.el.object3D.depthTest = false;
@@ -44,15 +43,15 @@ function createGameInfo(){
 
     //GOBBOS INFO
     gameInfo [0][0] = "Too many gobbos";
-    gameInfo [0][1] = "Too many gobbos desc";
+    gameInfo [0][1] = "One of my first games. I wanted to make a text based fantasy game, where you could make your own character with different weapons and skills. I also created a dynamic enemy system that creates a random enemy with random skills and name. This game was also used as example of my Java skills, so it can be downloaded from github.";
 
     //FROGGO INFO
     gameInfo [1][0] = "Froggo";
-    gameInfo [1][1] = "Froggo desc";
+    gameInfo [1][1] = "My first dip into 3D world of game development. The idea was to create an endless runner using Unreal engine 4. I desided to use low poly models that i created in Blender 2.7. In the game you would play as Froggo, that tried to collect as many wineglasses as he could while dodging barrels.";
 
     //ABYSS info
     gameInfo [2][0] = "Relics of the abyss";
-    gameInfo [2][1] = "Relics of the abyss descp";
+    gameInfo [2][1] = "My biggest project yet. Made with my classmate as thesis in ambiance in horror games. We decided to focus in thalassophobia, which is the fear of depths, so we made a game in what the player had to collect relics from the deep parts of the ocean. Almost everything in this project was made by us, from sounds and models to programming. This project was made using Unity.";
 }
 
 

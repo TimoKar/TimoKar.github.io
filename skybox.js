@@ -1,10 +1,12 @@
 
-var backgroundnum = 0;
-
 
 AFRAME.registerComponent("skybox", {
     init: function () {
-        SkyboxLoop();
+    setTimeout(fade)
+            setTimeout(function () {
+                document.querySelector('#background1').setAttribute('src', '#Blue');
+            }, 1000);
+            document.querySelector('#background').setAttribute('src', '#Blue');
     }
 })
 
@@ -14,42 +16,43 @@ function fade() {
     setTimeout(function () {
         backgroundEl.emit('fadeout');
         //console.log("fadeout")
-    }, 7000);
+    }, 1000);
 
     setTimeout(function () {
         backgroundEl.emit('fadein');
         //console.log("fadein")
+        
     });
+    
 };
 
 //Changes the background on set time
-function SkyboxLoop() {
+function ChangeSkybox(backgroundnumberin) {
     var backgroundEl = document.querySelector('#background');
     var backgroundEl1 = document.querySelector('#background1');//background1 is secondary background behind the main background.
-    if (backgroundEl != null) {
-        if (backgroundnum == 0) {
+    
+    
+    if (backgroundnumberin != null) {
+        if (backgroundnumberin === "RelicsBtn") {
             setTimeout(fade)
             setTimeout(function () {
                 backgroundEl1.setAttribute('src', '#Black');
-            }, 4000);
+            }, 1000);
             backgroundEl.setAttribute('src', '#Black');
-            backgroundnum += 1;
 
-        } else if (backgroundnum == 1) {
+        } else if (backgroundnumberin === "FroggoBtn") {
             setTimeout(fade)
             setTimeout(function () {
                 backgroundEl1.setAttribute('src', '#Red');
-            }, 4000);
+            }, 1000);
             backgroundEl.setAttribute('src', '#Red');
-            backgroundnum += 1;
 
-        } else if (backgroundnum == 2) {
+        } else if (backgroundnumberin === "GobbosBtn") {
             setTimeout(fade)
             setTimeout(function () {
                 backgroundEl1.setAttribute('src', '#Blue');
-            }, 4000);
+            }, 1000);
             backgroundEl.setAttribute('src', '#Blue');
-            backgroundnum = 0;
 
         } else {
             console.log(backgroundEl.src);
@@ -58,5 +61,6 @@ function SkyboxLoop() {
     } else {
         console.log("BACKGROUND NULL");
     }
-    setTimeout(SkyboxLoop, 8000);
+    
+    
 }

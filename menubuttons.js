@@ -44,6 +44,7 @@ AFRAME.registerComponent('menubuttons', {
     console.log("OnCLicked1!");
     evt.target.setAttribute('material', 'color', 'grey');
     showInfoscreen(evt.currentTarget.id);
+    ChangeSkybox(evt.currentTarget.id);
   },
 
   //When mouse goes over button

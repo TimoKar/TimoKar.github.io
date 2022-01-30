@@ -64,14 +64,12 @@
 
 
             <!--Secondary background-->
-            <a-sky id="background1" class="raycastable" radius="11"
-                   animation="property: rotation; easing: linear; to: 0 360 0; loop: true; dur: 100000"></a-sky>
+            <a-sky id="background1" class="raycastable" radius="11"></a-sky>
 
             <!--Main background that changes gradually-->
             <a-sky skybox id="background" class="raycastable" radius="10"
                    animation__fadein="startEvents: fadein; property: material.opacity; from: 0; to: 1; dur: 1000;"
-                   animation__fadeout="startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;"
-                   animation="property: rotation; easing: linear; to: 0 360 0; loop: true; dur: 100000">
+                   animation__fadeout="startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;">
 
             </a-sky>
 
