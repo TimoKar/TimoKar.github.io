@@ -9,7 +9,8 @@ var downloadtxt;
 
 AFRAME.registerComponent('info-panels', {
   init: function () {
-    //Setup game info
+  console.log("Infopanel found... initialyzing...");  
+  //Setup game info
     createGameInfo();
     //Setup variables
     infopanel = this.el.object3D;
@@ -21,9 +22,9 @@ AFRAME.registerComponent('info-panels', {
     //Setup infopanel & print data
     this.el.object3D.renderOrder = 9999999;
     this.el.object3D.depthTest = false;
-    console.log("InfoData:")
+    console.log("Infopanel data:")
     console.log(gameInfo);
-    
+    console.log("Infopanel initialyzed!");
   },
   
 

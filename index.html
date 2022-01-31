@@ -5,16 +5,19 @@
 		<title> Porfoliopage </title>
 		<meta charset="utf-8" />
 		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-        <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script> 
 
+        <!--Importing scripts-->
         <script src="skybox.js"></script>
         <script src="menubuttons.js"></script>
         <script src="info-panels.js"></script>
+        <script src="objectmanager.js"></script>
+
 	</head>
 
 	<body>
 		<a-scene id="VRScene"  vr-mode-ui="enabled: false">
         <a-assets>
+            <!--Importing assets-->
             <img id="Black" src="https://i.ibb.co/Lnnw4gn/black.png" alt="black" border="0" crossorigin="anonymous">
             <img id="Blue" src="https://i.ibb.co/5WZ8nhp/blue.png" alt="blue" border="0" crossorigin="anonymous">
             <img id="Red" src="https://i.ibb.co/Xb37R6P/red.png" alt="red" border="0" crossorigin="anonymous">
@@ -22,6 +25,9 @@
             <img id="FroggoScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Froggo.PNG" alt="Froggo" border="0" crossorigin="anonymous">
             <img id="RelicsScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Relics%20of%20the%20abyss.PNG" alt="Relics" border="0" crossorigin="anonymous">
             <img id="GobbosScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Too%20many%20gobbos.PNG" alt="Gobbos" border="0" crossorigin="anonymous">
+
+            <a-asset-item id="ColoredBarrel" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/BarrelColored.glb"></a-asset-item>
+            <a-asset-item id="Tree" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/BarrelColored.glb"></a-asset-item>
 
             <!-- mixin styling -->
             <a-mixin id="Frame"
@@ -33,13 +39,13 @@
                      material="color: white; shader: flat"
                      position="0 0 0.005"></a-mixin>
             <a-mixin id="InfoGameImagemix"
-                     geometry="primitive: plane; width: 2; height: 1"
+                     geometry="primitive: plane; width: 0.418; height: 0.23"
                      material="color: white; shader: flat; transparent: true"
-                     position="0 0.5 0.005"></a-mixin>
+                     position="0 0.094 0"></a-mixin>
             <a-mixin id="InfoFramemix"
-                     geometry="primitive: plane; width: 2.1; height: 2"
+                     geometry="primitive: plane; width: 0.43; height: 0.43"
                      material="color: black; shader: flat;"
-                     position="0 0.05 0"></a-mixin>
+                     position="0 0 0"></a-mixin>
         </a-assets>
 
 
@@ -60,45 +66,99 @@
                 
             </a-entity>
         
-            </a-entity>
+        </a-entity>
 
 
             <!--Secondary background-->
-            <a-sky id="background1" class="raycastable" radius="11"></a-sky>
+            <a-sky id="background1" class="raycastable" radius="41" render-order="backgroundRO"></a-sky>
 
-            <!--Main background that changes gradually-->
-            <a-sky skybox id="background" class="raycastable" radius="10"
+            <!--Main background that changes-->
+            <a-sky skybox id="background" class="raycastable" radius="40" render-order="backgroundRO"
                    animation__fadein="startEvents: fadein; property: material.opacity; from: 0; to: 1; dur: 1000;"
                    animation__fadeout="startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;">
 
             </a-sky>
 
+            <a-entity light="type: ambient; color: white; intensity: 0.5" position="0 0 1"></a-entity>
+            <a-entity light="type: point; color: white; intensity: 1.5; castShadow:true; decay:  2.540; distance:  14.050; shadowRadius:  10" position="0 2 0.5"></a-entity>
+
+            <!--Game objects-->
+            <a-entity id="objectManagerENT" objectmanager>
+                </a-entity>
+            <a-entity id="GroundEntity" 
+                geometry="primitive: plane; width: 100; height: 100"
+                rotation="-90 0 0"
+                position="0 -0.7 0"
+                material="color: #3179b0; shader: standard; transparent: false"
+                shadow="receive: false, cast: false">
+                </a-entity>
+
+            <!--Froggo-->
+            <a-entity id="FroggoObjects" 
+                <a-entity gltf-model="#ColoredBarrel" 
+                scale="0.2 0.2 0.2"
+                position="1 -0.7 1"
+                shadow="receive: false, cast: true"></a-entity>
+
+                <a-entity gltf-model="#ColoredBarrel" 
+                scale="0.2 0.2 0.2"
+                position="1.442 -0.7 1.047"
+                shadow="receive: false, cast: true"></a-entity>
+
+                <a-entity gltf-model="#ColoredBarrel" 
+                scale="0.2 0.2 0.2"
+                position="1.135 -0.7 1.385"
+                shadow="receive: false, cast: true"></a-entity>
+
+                <a-entity gltf-model="#ColoredBarrel" 
+                scale="0.2 0.2 0.2"
+                position="1.197 -0.032 1.159"
+                shadow="receive: false, cast: true"></a-entity>
+
+                <a-entity gltf-model="#ColoredBarrel" 
+                scale="0.2 0.2 0.2"
+                position="2.728 -0.7 -1.621"
+                shadow="receive: false, cast: true"></a-entity>
+            </a-entity>
 
 
+            <!--Relics-->
+            <a-entity id="RelicObjects" 
+                
+            </a-entity>
+
+
+            <!--Gobbos-->
+            <a-entity id="GobboObjects" 
+                
+            </a-entity>
+
+
+            <!--User camera-->
             <a-entity look-controls="reverseMouseDrag: true" class="raycastable" camera="" position="" wasd-controls-enabled="false" rotation="-11.11538122553796 15.240677350479807 0" mouse-cursor cursor="rayOrigin: mouse;  fuse: false" raycaster="objects: .raycastable" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
-            <a-entity id="infoPanel"
+                <!--Infopanel that shows game info, attached to camera-->
+                <a-entity id="infoPanel"  
                           class="raycastable"
-                          position="0 0 -1.5"
+                          position="0 0 -0.3"
                           info-panels
                           visible="false"
                           scale="0.001 0.001 0.001"
-                          geometry="primitive: plane; width: 2; height: 1.8"
+                          geometry="primitive: plane; width: 0.42; height: 0.42"
                           material="color: #3179b0; shader: flat; transparent: false">
                     <a-entity id="InfoFrame" mixin="InfoFramemix" visible="true"></a-entity>
                     <a-entity id="InfoGameImage" mixin="InfoGameImagemix" material="src: #FroggoScreen" visible="true"></a-entity>
                     <a-entity id="GameTitle"
-                              position="-0.90 -0.1 0"
-                              text="shader: msdf; negate: false; anchor: left; width: 1.7;font: mozillavr; color: black; value: Test" > </a-entity>
+                              position="-0.2 -0.025 0"
+                              text="shader: msdf; negate: false; anchor: left; width: 0.4;font: mozillavr; color: black; value: Test" > </a-entity>
                     <a-entity id="GameDescription"
-                          position="-0.85 -0.22 0"
-                          scale= "1.5 1.4 1"
+                          position="-0.18 -0.05 0"
+                          scale= "0.35 0.35 0.35"
                           text="baseline: top; negate: false; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
                     </a-entity>
                     <a-entity id="Downloadtxt"
-                          position="-0.85 -0.80 0"
-                          scale= "1 1 1"
+                          position="-0.2 -0.18 0"
                           visible="false"
-                          text="baseline: top; negate: false; width: 1.7; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Click on this infoscreen to open download page.">
+                          text="baseline: top; negate: false; width: 0.4; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Click on this infoscreen to open download page.">
                     </a-entity>
                 </a-entity>
             

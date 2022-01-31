@@ -7,7 +7,7 @@ var backgroundEl;
 
 AFRAME.registerComponent('menubuttons', {
   init: function () {
-    console.log("Initialyzing!");
+    console.log("Menubutton found... initialyzing...");
     //Finding all element that need eventlisteners
     buttons = this.el.querySelectorAll('.menu-button');
     backgroundEl = document.querySelector('#background');
@@ -35,7 +35,7 @@ AFRAME.registerComponent('menubuttons', {
       buttons[i].addEventListener('mouseleave', this.onMouseLeave);
       buttons[i].addEventListener('click', this.onClick);
     }
-    
+    console.log("Menubuttons initialyzed!");
   },
 
 
