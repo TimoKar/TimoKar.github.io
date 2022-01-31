@@ -61,7 +61,7 @@ AFRAME.registerComponent('menubuttons', {
   
   //When icons and infopanel needs to be reseted
   reset: function () {
-    console.log("Reseted1!");
+    console.log("Reseted!");
     for (var i = 0; i < buttons.length; ++i) {
       buttons[i].play();
       buttons[i].emit('mouseleave');
