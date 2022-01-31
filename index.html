@@ -27,7 +27,7 @@
             <img id="GobbosScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Too%20many%20gobbos.PNG" alt="Gobbos" border="0" crossorigin="anonymous">
 
             <a-asset-item id="ColoredBarrel" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/BarrelColored.glb"></a-asset-item>
-            <a-asset-item id="Tree" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/BarrelColored.glb"></a-asset-item>
+            <a-asset-item id="Tree" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Tree.glb"></a-asset-item>
 
             <!-- mixin styling -->
             <a-mixin id="Frame"
@@ -79,8 +79,8 @@
 
             </a-sky>
 
-            <a-entity light="type: ambient; color: white; intensity: 0.5" position="0 0 1"></a-entity>
-            <a-entity light="type: point; color: white; intensity: 1.5; castShadow:true; decay:  2.540; distance:  14.050; shadowRadius:  10" position="0 2 0.5"></a-entity>
+            <a-entity light="type: ambient; color: white; intensity: 1" position="0 0 0"></a-entity>
+            <a-entity light="type: point; color: white; intensity: 2; castShadow:true; decay:  2.540; distance:  14.050; shadowRadius:  10" position="0 2 0.5"></a-entity>
 
             <!--Game objects-->
             <a-entity id="objectManagerENT" objectmanager>
@@ -89,7 +89,7 @@
                 geometry="primitive: plane; width: 100; height: 100"
                 rotation="-90 0 0"
                 position="0 -0.7 0"
-                material="color: #3179b0; shader: standard; transparent: false"
+                material="color: #175020; shader: standard; transparent: false"
                 shadow="receive: false, cast: false">
                 </a-entity>
 
@@ -100,6 +100,24 @@
                 position="1 -0.7 1"
                 shadow="receive: false, cast: true"></a-entity>
 
+                <a-entity gltf-model="#Tree" 
+                scale="0.2 0.2 0.2"
+                position="-1.640 -0.7 0.247"
+                rotation="-180.000 84.189 -180.000"
+                shadow="receive: false, cast: true"></a-entity>
+
+                <a-entity gltf-model="#Tree" 
+                scale="0.16 0.16 0.16"
+                position="0.041 -0.7 -4.041"
+                rotation="0.000 -9.3331 0"
+                shadow="receive: false, cast: true"></a-entity>
+
+                <a-entity gltf-model="#Tree" 
+                scale="0.277 0.277 0.277"
+                position="8.3780 -0.7 -1.452"
+                rotation="0 -47.737 0"
+                shadow="receive: false, cast: true"></a-entity>
+
                 <a-entity gltf-model="#ColoredBarrel" 
                 scale="0.2 0.2 0.2"
                 position="1.442 -0.7 1.047"
@@ -108,6 +126,11 @@
                 <a-entity gltf-model="#ColoredBarrel" 
                 scale="0.2 0.2 0.2"
                 position="1.135 -0.7 1.385"
+                shadow="receive: false, cast: true"></a-entity>
+
+                <a-entity gltf-model="#ColoredBarrel" 
+                scale="0.2 0.2 0.2"
+                position="-1.819 -0.7 -0.193"
                 shadow="receive: false, cast: true"></a-entity>
 
                 <a-entity gltf-model="#ColoredBarrel" 
