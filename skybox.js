@@ -4,9 +4,9 @@ AFRAME.registerComponent("skybox", {
     init: function () {
     setTimeout(fade)
             setTimeout(function () {
-                document.querySelector('#background1').setAttribute('src', '#Blue');
+                document.querySelector('#background1').setAttribute('src', '#Bluesky');
             }, 1000);
-            document.querySelector('#background').setAttribute('src', '#Blue');
+            document.querySelector('#background').setAttribute('src', '#Bluesky');
     }
 })
 
@@ -43,16 +43,16 @@ function ChangeSkybox(backgroundnumberin) {
         } else if (backgroundnumberin === "FroggoBtn") {
             setTimeout(fade)
             setTimeout(function () {
-                backgroundEl1.setAttribute('src', '#Red');
+                backgroundEl1.setAttribute('src', '#Bluesky');
             }, 1000);
-            backgroundEl.setAttribute('src', '#Red');
+            backgroundEl.setAttribute('src', '#Bluesky');
 
         } else if (backgroundnumberin === "GobbosBtn") {
             setTimeout(fade)
             setTimeout(function () {
-                backgroundEl1.setAttribute('src', '#Blue');
+                backgroundEl1.setAttribute('src', '#Bluesky');
             }, 1000);
-            backgroundEl.setAttribute('src', '#Blue');
+            backgroundEl.setAttribute('src', '#Bluesky');
 
         } else {
             console.log(backgroundEl.src);

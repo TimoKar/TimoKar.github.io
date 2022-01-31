@@ -19,7 +19,7 @@
         <a-assets>
             <!--Importing assets-->
             <img id="Black" src="https://i.ibb.co/Lnnw4gn/black.png" alt="black" border="0" crossorigin="anonymous">
-            <img id="Blue" src="https://i.ibb.co/5WZ8nhp/blue.png" alt="blue" border="0" crossorigin="anonymous">
+            <img id="Bluesky" src="https://i.ibb.co/TrFHgHY/Fullblue.png" alt="blue" border="0" crossorigin="anonymous">
             <img id="Red" src="https://i.ibb.co/Xb37R6P/red.png" alt="red" border="0" crossorigin="anonymous">
 
             <img id="FroggoScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Froggo.PNG" alt="Froggo" border="0" crossorigin="anonymous">
@@ -28,6 +28,8 @@
 
             <a-asset-item id="ColoredBarrel" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/BarrelColored.glb"></a-asset-item>
             <a-asset-item id="Tree" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Tree.glb"></a-asset-item>
+            <a-asset-item id="Wineglass" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Wineglass.glb"></a-asset-item>
+
 
             <!-- mixin styling -->
             <a-mixin id="Frame"
@@ -104,6 +106,11 @@
                 scale="0.2 0.2 0.2"
                 position="-1.640 -0.7 0.247"
                 rotation="-180.000 84.189 -180.000"
+                shadow="receive: false, cast: true"></a-entity>
+
+                <a-entity gltf-model="#Wineglass" 
+                scale="0.2 0.2 0.2"
+                position="0.875 0 0.939"
                 shadow="receive: false, cast: true"></a-entity>
 
                 <a-entity gltf-model="#Tree" 
