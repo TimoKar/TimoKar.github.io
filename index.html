@@ -15,70 +15,79 @@
 	</head>
     
 	<body>
-		<a-scene id="VRScene"  vr-mode-ui="enabled: false">
-        <a-assets>
-            <!--Importing assets-->
-            <img id="Black" src="https://i.ibb.co/Lnnw4gn/black.png" alt="Black" border="0" crossorigin="anonymous">
-            <img id="Bluesky" src="https://i.ibb.co/TrFHgHY/Fullblue.png" alt="Blue" border="0" crossorigin="anonymous">
-            <img id="Red" src="https://i.ibb.co/Xb37R6P/red.png" alt="Red" border="0" crossorigin="anonymous">
+		<a-scene id="VRScene"  vr-mode-ui="enabled: false" fog="type: exponential; color: #405469; density: 0.0"
+        animation__fadefogin="startEvents: fadefogin; property: fog.density; from: 0; to: 0.15; dur: 1000;"
+        animation__fadefogout="startEvents: fadefogout; property: fog.density; from: 0.15; to: 0; dur: 1000;">
+            <a-assets>
+                <!--Importing assets-->
+                <img id="Black" src="https://i.ibb.co/Lnnw4gn/black.png" alt="Black" border="0" crossorigin="anonymous">
+                <img id="Bluesky" src="https://i.ibb.co/TrFHgHY/Fullblue.png" alt="Blue" border="0" crossorigin="anonymous">
+                <img id="Red" src="https://i.ibb.co/Xb37R6P/red.png" alt="Red" border="0" crossorigin="anonymous">
 
-            <img id="FroggoScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Froggo.PNG" alt="Froggo" border="0" crossorigin="anonymous">
-            <img id="RelicsScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Relics%20of%20the%20abyss.PNG" alt="Relics" border="0" crossorigin="anonymous">
-            <img id="GobbosScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Too%20many%20gobbos.PNG" alt="Gobbos" border="0" crossorigin="anonymous">
+                <img id="FroggoScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Froggo.PNG" alt="Froggo" border="0" crossorigin="anonymous">
+                <img id="RelicsScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Relics%20of%20the%20abyss.PNG" alt="Relics" border="0" crossorigin="anonymous">
+                <img id="GobbosScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Too%20many%20gobbos.PNG" alt="Gobbos" border="0" crossorigin="anonymous">
 
-            <a-asset-item id="ColoredBarrel" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/BarrelColored.glb"></a-asset-item>
-            <a-asset-item id="Tree" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Tree.glb"></a-asset-item>
-            <a-asset-item id="Wineglass" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Wineglass.glb"></a-asset-item>
+                <!--Froggo assets-->
+                <a-asset-item id="ColoredBarrel" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/BarrelColored.glb"></a-asset-item>
+                <a-asset-item id="Tree" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Tree.glb"></a-asset-item>
+                <a-asset-item id="Wineglass" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Wineglass.glb"></a-asset-item>
 
+                <!--Relics of the abyss assets-->
 
-            <!-- mixin styling -->
-            <a-mixin id="Frame"
+                <a-asset-item id="FishCarcass" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/FishCarcassWMat.glb"></a-asset-item>
+                <a-asset-item id="Mountain" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/KallioWMat.glb"></a-asset-item>
+                <a-asset-item id="RockArc" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/RockArcWMat.glb"></a-asset-item>
+                <a-asset-item id="IsleChain" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/SaarekeketjuWMat.glb"></a-asset-item>
+                <a-asset-item id="Snakeplant" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/SnakeplantWMat.glb"></a-asset-item>
+                <img id="DirtClay" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Textures/DirtClay.png" alt="Dirt" border="0" crossorigin="anonymous">
+                <!--Too many gobbos assets-->
+
+                <!-- mixin styling -->
+                <a-mixin id="Frame"
                      geometry="primitive: plane; width: 1.6; height: 1.05"
                      material="color: black; shader: flat"
                      </a-mixin>
-            <a-mixin id="GameImage"
+                <a-mixin id="GameImage"
                      geometry="primitive: plane; width: 1.55; height: 1"
                      material="color: white; shader: flat"
                      position="0 0 0.005"></a-mixin>
-            <a-mixin id="InfoGameImagemix"
+                <a-mixin id="InfoGameImagemix"
                      geometry="primitive: plane; width: 0.418; height: 0.23"
                      material="color: white; shader: flat; transparent: true"
                      position="0 0.094 0"></a-mixin>
-            <a-mixin id="InfoFramemix"
+                <a-mixin id="InfoFramemix"
                      geometry="primitive: plane; width: 0.43; height: 0.43"
                      material="color: black; shader: flat;"
                      position="0 0 0"></a-mixin>
-        </a-assets>
+            </a-assets>
 
 
-        <a-entity id="ui" position="0 0 0">
-            <!-- Menubutton entities -->
-            <a-entity id="menu" menubuttons>
+            <a-entity id="ui" position="0 0 0">
+                <!-- Menubutton entities -->
+                <a-entity id="menu" menubuttons>
                 
-            <a-entity id="FroggoBtn" position="-2 0 0" rotation="0 90 0" mixin="Frame" class="raycastable menu-button">
-                <a-entity material="src: #FroggoScreen;" mixin="GameImage"></a-entity>
-            </a-entity>
+                    <a-entity id="FroggoBtn" position="-2 0 0" rotation="0 90 0" mixin="Frame" class="raycastable menu-button">
+                        <a-entity material="src: #FroggoScreen;" mixin="GameImage"></a-entity>
+                    </a-entity>
 
-            <a-entity id="RelicsBtn" position="0 0 -2" rotation="0 0 0" mixin="Frame" class="raycastable menu-button">
-                <a-entity material="src: #RelicsScreen" mixin="GameImage"></a-entity>
-            </a-entity>
+                    <a-entity id="RelicsBtn" position="0 0 -2" rotation="0 0 0" mixin="Frame" class="raycastable menu-button">
+                        <a-entity material="src: #RelicsScreen" mixin="GameImage"></a-entity>
+                    </a-entity>
 
-            <a-entity id="GobbosBtn" position="2 0 0" rotation="0 -90 0" mixin="Frame" class="raycastable menu-button">
-                <a-entity material="src: #GobbosScreen" mixin="GameImage"></a-entity>
-                
+                    <a-entity id="GobbosBtn" position="2 0 0" rotation="0 -90 0" mixin="Frame" class="raycastable menu-button">
+                        <a-entity material="src: #GobbosScreen" mixin="GameImage"></a-entity>
+                    </a-entity>
+                </a-entity>
             </a-entity>
-        
-        </a-entity>
-
 
             <!--Secondary background-->
-            <a-sky id="background1" class="raycastable" radius="41" render-order="backgroundRO"></a-sky>
+            <a-sky id="background1" class="raycastable" radius="41"></a-sky>
 
             <!--Main background that changes-->
-            <a-sky skybox id="background" class="raycastable" radius="40" render-order="backgroundRO"
-                   animation__fadein="startEvents: fadein; property: material.opacity; from: 0; to: 1; dur: 1000;"
-                   animation__fadeout="startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;">
-
+            <a-sky skybox id="background" class="raycastable" radius="40"
+                animation__fadein="startEvents: fadein; property: material.opacity; from: 0; to: 1; dur: 1000;"
+                animation__fadeout="startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;">
             </a-sky>
 
             <a-entity light="type: ambient; color: white; intensity: 1" position="0 0 0"></a-entity>
@@ -86,80 +95,115 @@
 
             <!--Game objects-->
             <a-entity id="objectManagerENT" objectmanager>
-                </a-entity>
-            <a-entity id="GroundEntity" 
+            </a-entity>
+            <a-entity id="GroundEntity"
                 geometry="primitive: plane; width: 100; height: 100"
                 rotation="-90 0 0"
                 position="0 -0.7 0"
-                material="color: #175020; shader: standard; transparent: false"
-                shadow="receive: false, cast: false">
-                </a-entity>
+                material="color: #175020; shader: standard;"
+                shadow="receive: false, cast: false"
+                animation__fadeGin="startEvents: fadeGin; property: material.opacity; from: 0; to: 1; dur: 500;"
+                animation__fadeGout="startEvents: fadeGout; property: material.opacity; from: 1; to: 0; dur: 500;">
+            </a-entity>
 
-            <!--Froggo-->
-            <a-entity id="FroggoObjects" 
-                <a-entity gltf-model="#ColoredBarrel" 
-                scale="0.2 0.2 0.2"
-                position="1 -0.7 1"
-                shadow="receive: false, cast: true"></a-entity>
-
-                <a-entity gltf-model="#Tree" 
-                scale="0.2 0.2 0.2"
-                position="-1.640 -0.7 0.247"
-                rotation="-180.000 84.189 -180.000"
-                shadow="receive: false, cast: true"></a-entity>
-
-                <a-entity gltf-model="#Wineglass" 
-                scale="0.2 0.2 0.2"
-                position="0.875 0 0.939"
-                shadow="receive: false, cast: true"></a-entity>
-
-                <a-entity gltf-model="#Tree" 
-                scale="0.16 0.16 0.16"
-                position="0.041 -0.7 -4.041"
-                rotation="0.000 -9.3331 0"
-                shadow="receive: false, cast: true"></a-entity>
-
-                <a-entity gltf-model="#Tree" 
-                scale="0.277 0.277 0.277"
-                position="8.3780 -0.7 -1.452"
-                rotation="0 -47.737 0"
-                shadow="receive: false, cast: true"></a-entity>
-
-                <a-entity gltf-model="#ColoredBarrel" 
-                scale="0.2 0.2 0.2"
-                position="1.442 -0.7 1.047"
-                shadow="receive: false, cast: true"></a-entity>
-
-                <a-entity gltf-model="#ColoredBarrel" 
-                scale="0.2 0.2 0.2"
-                position="1.135 -0.7 1.385"
-                shadow="receive: false, cast: true"></a-entity>
-
-                <a-entity gltf-model="#ColoredBarrel" 
-                scale="0.2 0.2 0.2"
-                position="-1.819 -0.7 -0.193"
-                shadow="receive: false, cast: true"></a-entity>
-
-                <a-entity gltf-model="#ColoredBarrel" 
-                scale="0.2 0.2 0.2"
-                position="1.197 -0.032 1.159"
-                shadow="receive: false, cast: true"></a-entity>
-
-                <a-entity gltf-model="#ColoredBarrel" 
-                scale="0.2 0.2 0.2"
-                position="2.728 -0.7 -1.621"
-                shadow="receive: false, cast: true"></a-entity>
+            <a-entity id="GroundEntityRelics" 
+                geometry="primitive: circle; radius:5"
+                rotation="-90 0 0"
+                position="0 -0.701 0"
+                material="src:#DirtClay; shader: standard; opacity: 0"
+                shadow="receive: false, cast: false"
+                animation__fadeRGin="startEvents: fadeRGin; property: material.opacity; from: 0; to: 1; dur: 500;"
+                animation__fadeRGout="startEvents: fadeRGout; property: material.opacity; from: 1; to: 0; dur: 500;">
             </a-entity>
 
 
-            <!--Relics-->
-            <a-entity id="RelicObjects" 
-                
+            <!--Froggo assets: "ColoredBarrel" "Tree" "Wineglass"-->
+            <a-entity id="FroggoObjects" visible= "true"
+            animation__fadeFrogin="startEvents: fadeFrogin; property: scale; from: 1 0 1; to: 1 1 1; dur: 1000;"
+            animation__fadeFrogout="startEvents: fadeFrogout; property: scale; from: 1 1 1; to: 1 0 1; dur: 1000;">
+                <a-entity id="ColoredBarrel1" gltf-model="#ColoredBarrel" 
+                    scale="0.2 0.2 0.2"
+                    position="1 -0.7 1"
+                    shadow="receive: false, cast: true">
+                </a-entity>
+
+                <a-entity id="Tree1" gltf-model="#Tree" 
+                    scale="0.2 0.2 0.2"
+                    position="-1.640 -0.7 0.247"
+                    rotation="-180.000 84.189 -180.000"
+                    shadow="receive: false, cast: true">
+                </a-entity>
+
+                <a-entity id="Wineglass1" gltf-model="#Wineglass" 
+                    scale="0.2 0.2 0.2"
+                    position="0.875 0 0.939"
+                    shadow="receive: false, cast: true">
+                </a-entity>
+
+                <a-entity id="Tree2" gltf-model="#Tree" 
+                    scale="0.16 0.16 0.16"
+                    position="0.041 -0.7 -4.041"
+                    rotation="0.000 -9.3331 0"
+                    shadow="receive: false, cast: true">
+                </a-entity>
+
+                <a-entity id="Tree3" gltf-model="#Tree" 
+                    scale="0.277 0.277 0.277"
+                    position="8.3780 -0.7 -1.452"
+                    rotation="0 -47.737 0"
+                    shadow="receive: false, cast: true">
+                </a-entity>
+
+                <a-entity id="ColoredBarrel2" gltf-model="#ColoredBarrel" 
+                    scale="0.2 0.2 0.2"
+                    position="1.442 -0.7 1.047"
+                    shadow="receive: false, cast: true">
+                </a-entity>
+
+                <a-entity id="ColoredBarrel3" gltf-model="#ColoredBarrel" 
+                    scale="0.2 0.2 0.2"
+                    position="1.135 -0.7 1.385"
+                    shadow="receive: false, cast: true">
+                </a-entity>
+
+                <a-entity id="ColoredBarrel4" gltf-model="#ColoredBarrel" 
+                    scale="0.2 0.2 0.2"
+                    position="-1.819 -0.7 -0.193"
+                    shadow="receive: false, cast: true">
+                </a-entity>
+
+                <a-entity id="ColoredBarrel5" gltf-model="#ColoredBarrel" 
+                    scale="0.2 0.2 0.2"
+                    position="1.197 -0.032 1.159"
+                    shadow="receive: false, cast: true">
+                </a-entity>
+
+                <a-entity id="ColoredBarrel6" gltf-model="#ColoredBarrel" 
+                    scale="0.2 0.2 0.2"
+                    position="2.728 -0.7 -1.621"
+                    shadow="receive: false, cast: true">
+                </a-entity>
+            </a-entity>
+
+
+            <!--Relics assets: "FishCarcass" "Mountain" "RockArc" "IsleChain" "Snakeplant"-->
+            <a-entity id="RelicObjects" visible= "false"
+            animation__fadeRelicin="startEvents: fadeRelicin; property: scale; from: 1 0 1; to: 1 1 1; dur: 1000;"
+            animation__fadeRelicout="startEvents: fadeRelicout; property: scale; from: 1 1 1; to: 1 0 1; dur: 1000;">
+                <a-entity id="Mountain1" gltf-model="#Mountain" 
+                    scale="0.7 0.7 0.7"
+                    position="-5.852 -0.861 -1.541"
+                    rotation="0 -35.340 -6.950"
+                    shadow="receive: false, cast: true">
+                </a-entity>
+
             </a-entity>
 
 
             <!--Gobbos-->
-            <a-entity id="GobboObjects" 
+            <a-entity id="GobboObjects" visible= "false"
+            animation__fadeGobin="startEvents: fadeGobin; property: scale; from: 1 0 1; to: 1 1 1; dur: 1000;"
+            animation__fadeGobout="startEvents: fadeGobout; property: scale; from: 1 1 1; to: 1 0 1; dur: 1000;">
                 
             </a-entity>
 
@@ -168,33 +212,41 @@
             <a-entity look-controls="reverseMouseDrag: true" class="raycastable" camera="" position="" wasd-controls-enabled="false" rotation="-11.11538122553796 15.240677350479807 0" mouse-cursor cursor="rayOrigin: mouse;  fuse: false" raycaster="objects: .raycastable" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
                 <!--Infopanel that shows game info, attached to camera-->
                 <a-entity id="infoPanel"  
-                          class="raycastable"
-                          position="0 0 -0.3"
-                          info-panels
-                          visible="false"
-                          scale="0.001 0.001 0.001"
-                          geometry="primitive: plane; width: 0.42; height: 0.42"
-                          material="color: #3179b0; shader: flat; transparent: false">
-                    <a-entity id="InfoFrame" mixin="InfoFramemix" visible="true"></a-entity>
-                    <a-entity id="InfoGameImage" mixin="InfoGameImagemix" material="src: #FroggoScreen" visible="true"></a-entity>
-                    <a-entity id="GameTitle"
-                              position="-0.2 -0.025 0"
-                              text="shader: msdf; negate: false; anchor: left; width: 0.4;font: mozillavr; color: black; value: Test" > </a-entity>
-                    <a-entity id="GameDescription"
-                          position="-0.18 -0.05 0"
-                          scale= "0.35 0.35 0.35"
-                          text="baseline: top; negate: false; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
-                    </a-entity>
-                    <a-entity id="Downloadtxt"
-                          position="-0.2 -0.18 0"
-                          visible="false"
-                          text="baseline: top; negate: false; width: 0.4; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Click on this infoscreen to open download page.">
-                    </a-entity>
+                    class="raycastable"
+                    position="0 0 -0.3"
+                    info-panels
+                    visible="false"
+                    scale="0.001 0.001 0.001"
+                    geometry="primitive: plane; width: 0.42; height: 0.42"
+                    material="color: #3179b0; shader: flat; transparent: false">
+                        <a-entity id="InfoFrame" 
+                            mixin="InfoFramemix" 
+                            visible="true">
+                        </a-entity>
+                        <a-entity id="InfoGameImage" 
+                            mixin="InfoGameImagemix" 
+                            material="src: #FroggoScreen" 
+                            visible="true">
+                        </a-entity>
+                        <a-entity id="GameTitle"
+                            position="-0.2 -0.025 0"
+                            text="shader: msdf; negate: false; anchor: left; width: 0.4;font: mozillavr; color: black; value: Test" > 
+                        </a-entity>
+                        <a-entity id="GameDescription"
+                            position="-0.18 -0.05 0"
+                            scale= "0.35 0.35 0.35"
+                            text="baseline: top; negate: false; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
+                        </a-entity>
+                        <a-entity id="Downloadtxt"
+                            position="-0.2 -0.18 0"
+                            visible="false"
+                            text="baseline: top; negate: false; width: 0.4; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Click on this infoscreen to open download page.">
+                        </a-entity>
                 </a-entity>
             
             </a-entity>
-        </a-entity>
-    </a-scene>
+        
+        </a-scene>
 
 	</body>
 <html>

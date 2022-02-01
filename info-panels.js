@@ -57,7 +57,6 @@ function createGameInfo(){
 
 
 function showInfoscreen(ID){
-    console.log(ID);
     //Setting infopanel data
     switch(ID){
         case 'RelicsBtn':

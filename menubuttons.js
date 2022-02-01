@@ -43,6 +43,7 @@ AFRAME.registerComponent('menubuttons', {
   onClick: function (evt) {
     console.log("OnCLicked1!");
     evt.target.setAttribute('material', 'color', 'grey');
+    changeScene(evt.currentTarget.id)
     showInfoscreen(evt.currentTarget.id);
     ChangeSkybox(evt.currentTarget.id);
   },

@@ -1,7 +1,9 @@
-
+var vrScene;
+var lastBtn = "Froggo";
 
 AFRAME.registerComponent("skybox", {
     init: function () {
+    vrScene = document.querySelector('#VRScene');
     setTimeout(fade)
             setTimeout(function () {
                 document.querySelector('#background1').setAttribute('src', '#Bluesky');
@@ -23,7 +25,7 @@ function fade() {
         //console.log("fadein")
         
     });
-    
+
 };
 
 //Changes the background on set time
@@ -34,6 +36,10 @@ function ChangeSkybox(backgroundnumberin) {
     
     if (backgroundnumberin != null) {
         if (backgroundnumberin === "RelicsBtn") {
+            if(!(lastBtn == "Relic")) {
+                vrScene.emit('fadefogin');
+            }
+            lastBtn = "Relic";
             setTimeout(fade)
             setTimeout(function () {
                 backgroundEl1.setAttribute('src', '#Black');
@@ -41,6 +47,10 @@ function ChangeSkybox(backgroundnumberin) {
             backgroundEl.setAttribute('src', '#Black');
 
         } else if (backgroundnumberin === "FroggoBtn") {
+            if(lastBtn == "Relic"){ 
+            vrScene.emit('fadefogout');
+            }
+            lastBtn = "Froggo";
             setTimeout(fade)
             setTimeout(function () {
                 backgroundEl1.setAttribute('src', '#Bluesky');
@@ -48,11 +58,15 @@ function ChangeSkybox(backgroundnumberin) {
             backgroundEl.setAttribute('src', '#Bluesky');
 
         } else if (backgroundnumberin === "GobbosBtn") {
+            if(lastBtn == "Relic"){
+                vrScene.emit('fadefogout');
+            }
+            lastBtn = "Gobbos";
             setTimeout(fade)
             setTimeout(function () {
-                backgroundEl1.setAttribute('src', '#Bluesky');
+                backgroundEl1.setAttribute('src', '#Red');
             }, 1000);
-            backgroundEl.setAttribute('src', '#Bluesky');
+            backgroundEl.setAttribute('src', '#Red');
 
         } else {
             console.log(backgroundEl.src);
