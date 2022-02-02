@@ -40,13 +40,20 @@
                 <a-asset-item id="RockArc" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/RockArcWMat.glb"></a-asset-item>
                 <a-asset-item id="IsleChain" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/SaarekeketjuWMat.glb"></a-asset-item>
                 <a-asset-item id="Snakeplant" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/SnakeplantWMat.glb"></a-asset-item>
+                <a-asset-item id="Pot" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Pot1WMat.glb"></a-asset-item>
+                <a-asset-item id="PotS" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Pot2WMat.glb"></a-asset-item>
+                <a-asset-item id="Trident" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/TridentWMat.glb"></a-asset-item>
+                <a-asset-item id="Stalagtites" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/StalagtitesWMat.glb"></a-asset-item>
+
                 <img id="DirtClay" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Textures/DirtClay.png" alt="Dirt" border="0" crossorigin="anonymous">
                 <!--Too many gobbos assets-->
+
+
 
                 <!-- mixin styling -->
                 <a-mixin id="Frame"
                      geometry="primitive: plane; width: 1.6; height: 1.05"
-                     material="color: black; shader: flat"
+                     material="color: black; shader: flat">
                      </a-mixin>
                 <a-mixin id="GameImage"
                      geometry="primitive: plane; width: 1.55; height: 1"
@@ -92,6 +99,44 @@
 
             <a-entity light="type: ambient; color: white; intensity: 1" position="0 0 0"></a-entity>
             <a-entity light="type: point; color: white; intensity: 2; castShadow:true; decay:  2.540; distance:  14.050; shadowRadius:  10" position="0 2 0.5"></a-entity>
+
+            <!--User camera-->
+            <a-entity id= "MainCam" look-controls="reverseMouseDrag: true" class="raycastable" camera="" position="" wasd-controls-enabled="false" rotation="-11.11538122553796 15.240677350479807 0" mouse-cursor cursor="rayOrigin: mouse;  fuse: false" raycaster="objects: .raycastable" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
+                <!--Infopanel that shows game info, attached to camera-->
+                <a-entity id="infoPanel"  
+                    class="raycastable"
+                    position="0 0 -0.3"
+                    info-panels
+                    visible="false"
+                    scale="0.001 0.001 0.001"
+                    geometry="primitive: plane; width: 0.42; height: 0.42"
+                    material="color: #3179b0; shader: flat; transparent: false">
+                        <a-entity id="InfoFrame" 
+                            mixin="InfoFramemix" 
+                            visible="true">
+                        </a-entity>
+                        <a-entity id="InfoGameImage" 
+                            mixin="InfoGameImagemix" 
+                            material="src: #FroggoScreen" 
+                            visible="true">
+                        </a-entity>
+                        <a-entity id="GameTitle"
+                            position="-0.2 -0.025 0"
+                            text="shader: msdf; negate: false; anchor: left; width: 0.4;font: mozillavr; color: black; value: Test" > 
+                        </a-entity>
+                        <a-entity id="GameDescription"
+                            position="-0.18 -0.05 0"
+                            scale= "0.35 0.35 0.35"
+                            text="baseline: top; negate: false; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
+                        </a-entity>
+                        <a-entity id="Downloadtxt"
+                            position="-0.2 -0.18 0"
+                            visible="false"
+                            text="baseline: top; negate: false; width: 0.4; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Click on this infoscreen to open download page.">
+                        </a-entity>
+                </a-entity>
+            
+            </a-entity>
 
             <!--Game objects-->
             <a-entity id="objectManagerENT" objectmanager>
@@ -186,7 +231,7 @@
             </a-entity>
 
 
-            <!--Relics assets: "FishCarcass" "Mountain" "RockArc" "IsleChain" "Snakeplant"-->
+            <!--Relics assets: "FishCarcass" "Mountain" "RockArc" "IsleChain" "Snakeplant" "Pot" "PotS" "Trident" "Stalagtites"-->
             <a-entity id="RelicObjects" visible= "false"
             animation__fadeRelicin="startEvents: fadeRelicin; property: scale; from: 1 0 1; to: 1 1 1; dur: 1000;"
             animation__fadeRelicout="startEvents: fadeRelicout; property: scale; from: 1 1 1; to: 1 0 1; dur: 1000;">
@@ -220,7 +265,7 @@
 
                 <a-entity id="IsleChain4" gltf-model="#IsleChain" 
                     scale="0.1 0.1 0.1"
-                    position="3.705 5.640 -13.431"
+                    position="0.971 5.640 -13.431"
                     rotation="0 0 0"
                     shadow="receive: false, cast: true">
                 </a-entity>
@@ -260,14 +305,47 @@
                     shadow="receive: false, cast: true">
                 </a-entity>
 
-                <a-entity id="Snakeplant4" gltf-model="#Snakeplant" 
+                <a-entity id="Snakeplant5" gltf-model="#Snakeplant" 
                     scale="0.07 0.07 0.07"
                     position="1.698 1.047 3.827"
                     rotation="0 283.310 0"
                     shadow="receive: false, cast: true">
                 </a-entity>
 
+                <a-entity id="Pot1" gltf-model="#Pot" 
+                    scale="0.2 0.2 0.2"
+                    position="-1.101 -0.7 -0.713"
+                    rotation="0 0 0"
+                    shadow="receive: false, cast: true">
+                </a-entity>
 
+                <a-entity id="Pot2" gltf-model="#Pot" 
+                    scale="0.2 0.2 0.2"
+                    position="-1.336 -0.7 0.049"
+                    rotation="0 -41.950 0"
+                    shadow="receive: false, cast: true">
+                </a-entity>
+
+                <a-entity id="PotS1" gltf-model="#PotS" 
+                    scale="0.2 0.2 0.2"
+                    position="-1.163 -0.7 -0.247"
+                    rotation="0 0 0"
+                    shadow="receive: false, cast: true">
+                </a-entity>
+
+                <a-entity id="Trident1" gltf-model="#Trident" 
+                    scale="0.1 0.1 0.1"
+                    position="1.241 1.310 -4.585"
+                    rotation="160.000 0 0"
+                    shadow="receive: false, cast: true">
+                </a-entity>
+
+                <a-entity id="FishCarcass1" gltf-model="#FishCarcass" 
+                    scale="0.3 0.3 0.3"
+                    position="1.188 -0.871 -3.939"
+                    rotation="-2.160 -37.510 -34.210"
+                    shadow="receive: false, cast: true">
+                </a-entity>
             </a-entity>
 
 
@@ -279,43 +357,7 @@
             </a-entity>
 
 
-            <!--User camera-->
-            <a-entity look-controls="reverseMouseDrag: true" class="raycastable" camera="" position="" wasd-controls-enabled="false" rotation="-11.11538122553796 15.240677350479807 0" mouse-cursor cursor="rayOrigin: mouse;  fuse: false" raycaster="objects: .raycastable" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
-                <!--Infopanel that shows game info, attached to camera-->
-                <a-entity id="infoPanel"  
-                    class="raycastable"
-                    position="0 0 -0.3"
-                    info-panels
-                    visible="false"
-                    scale="0.001 0.001 0.001"
-                    geometry="primitive: plane; width: 0.42; height: 0.42"
-                    material="color: #3179b0; shader: flat; transparent: false">
-                        <a-entity id="InfoFrame" 
-                            mixin="InfoFramemix" 
-                            visible="true">
-                        </a-entity>
-                        <a-entity id="InfoGameImage" 
-                            mixin="InfoGameImagemix" 
-                            material="src: #FroggoScreen" 
-                            visible="true">
-                        </a-entity>
-                        <a-entity id="GameTitle"
-                            position="-0.2 -0.025 0"
-                            text="shader: msdf; negate: false; anchor: left; width: 0.4;font: mozillavr; color: black; value: Test" > 
-                        </a-entity>
-                        <a-entity id="GameDescription"
-                            position="-0.18 -0.05 0"
-                            scale= "0.35 0.35 0.35"
-                            text="baseline: top; negate: false; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
-                        </a-entity>
-                        <a-entity id="Downloadtxt"
-                            position="-0.2 -0.18 0"
-                            visible="false"
-                            text="baseline: top; negate: false; width: 0.4; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Click on this infoscreen to open download page.">
-                        </a-entity>
-                </a-entity>
             
-            </a-entity>
         
         </a-scene>
 
