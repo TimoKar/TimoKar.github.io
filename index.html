@@ -28,6 +28,8 @@
                 <img id="RelicsScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Relics%20of%20the%20abyss.PNG" alt="Relics" border="0" crossorigin="anonymous">
                 <img id="GobbosScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Too%20many%20gobbos.PNG" alt="Gobbos" border="0" crossorigin="anonymous">
 
+                <img id="Arrow" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Textures/ArrowGreen.png" alt="Dirt" border="0" crossorigin="anonymous">
+
                 <!--Froggo assets-->
                 <a-asset-item id="ColoredBarrel" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/BarrelColored.glb"></a-asset-item>
                 <a-asset-item id="Tree" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Tree.glb"></a-asset-item>
@@ -52,21 +54,23 @@
 
                 <!-- mixin styling -->
                 <a-mixin id="Frame"
-                     geometry="primitive: plane; width: 1.6; height: 1.05"
-                     material="color: black; shader: flat">
-                     </a-mixin>
+                    geometry="primitive: plane; width: 1.6; height: 1.05"
+                    material="color: black; shader: flat"></a-mixin>
                 <a-mixin id="GameImage"
-                     geometry="primitive: plane; width: 1.55; height: 1"
-                     material="color: white; shader: flat"
-                     position="0 0 0.005"></a-mixin>
+                    geometry="primitive: plane; width: 1.55; height: 1"
+                    material="color: white; shader: flat"
+                    position="0 0 0.005"></a-mixin>
                 <a-mixin id="InfoGameImagemix"
-                     geometry="primitive: plane; width: 0.418; height: 0.23"
-                     material="color: white; shader: flat; transparent: true"
-                     position="0 0.094 0"></a-mixin>
+                    geometry="primitive: plane; width: 0.418; height: 0.23"
+                    material="color: white; shader: flat; transparent: true"
+                    position="0 0.094 0.0001"></a-mixin>
+                <a-mixin id="GreenArrow"
+                    geometry="primitive: plane; width: 0.03; height: 0.03"
+                    material="src: #Arrow; shader: flat; transparent: true"></a-mixin>
                 <a-mixin id="InfoFramemix"
-                     geometry="primitive: plane; width: 0.43; height: 0.43"
-                     material="color: black; shader: flat;"
-                     position="0 0 0"></a-mixin>
+                    geometry="primitive: plane; width: 0.43; height: 0.43"
+                    material="color: black; shader: flat;"
+                    position="0 0 0"></a-mixin>
             </a-assets>
 
 
@@ -117,7 +121,21 @@
                         </a-entity>
                         <a-entity id="InfoGameImage" 
                             mixin="InfoGameImagemix" 
+                            class="raycastable"
                             material="src: #FroggoScreen" 
+                            visible="true">
+                        </a-entity>
+                        <a-entity id="ArrowLeft" 
+                            mixin="GreenArrow"
+                            class="raycastable"
+                            position="-0.195 0.195 0.0002"
+                            rotation= "0 0 180"
+                            visible="true">
+                        </a-entity>
+                        <a-entity id="ArrowRight" 
+                            mixin="GreenArrow"
+                            class="raycastable"
+                            position="0.195 0.195 0.0002"
                             visible="true">
                         </a-entity>
                         <a-entity id="GameTitle"
@@ -132,7 +150,13 @@
                         <a-entity id="Downloadtxt"
                             position="-0.2 -0.18 0"
                             visible="false"
-                            text="baseline: top; negate: false; width: 0.4; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Click on this infoscreen to open download page.">
+                            text="baseline: top; negate: false; width: 0.4; shader: msdf; anchor: left; font:aileronsemibold; color: black; value: Click on this arrow to open download page.">
+                                <a-entity id="DownloadArrow" 
+                                    mixin="GreenArrow"
+                                    class="raycastable"
+                                    position="0.35 -0.01 0.0002"
+                                    visible="true">
+                                </a-entity>
                         </a-entity>
                 </a-entity>
             

@@ -6,6 +6,9 @@ var ImageElement;
 var Infotxt;
 var Titletxt;
 var downloadtxt;
+var leftArrow;
+var rightArrow;
+var downloadArrow;
 
 AFRAME.registerComponent('info-panels', {
   init: function () {
@@ -18,6 +21,17 @@ AFRAME.registerComponent('info-panels', {
     Infotxt = document.querySelector('#GameDescription');
     Titletxt = document.querySelector('#GameTitle');
     downloadtxt = document.querySelector('#Downloadtxt');
+    leftArrow = document.querySelector('#ArrowLeft');
+    rightArrow = document.querySelector('#ArrowRight');
+    downloadArrow = document.querySelector('#DownloadArrow');
+
+    console.log("TEST: " + leftArrow);
+    console.log("TEST: " + rightArrow);
+    //Setup eventlisteners
+    leftArrow.addEventListener('click', this.onArrowClick);
+    rightArrow.addEventListener('click', this.onArrowClick);
+    downloadArrow.addEventListener('click', this.onDownloadArrowClick);
+    ImageElement.addEventListener('click', this.onImageClick);
 
     //Setup infopanel & print data
     this.el.object3D.renderOrder = 9999999;
@@ -28,9 +42,20 @@ AFRAME.registerComponent('info-panels', {
   },
   
 
-  //onInfoButtonClick
-  onInfoButtonClick: function (evt) {
-    
+  //When infopanel is clicked
+  onDownloadArrowClick: function (evt) {
+    console.log("INFOPANEL CLICKED");
+    window.open('https://github.com/TimoKar/Gobbos', '_blank');
+  },
+
+  //When either left or right arrow is clicked
+  onArrowClick: function (evt) {
+    console.log("ARROW CLICKED: " + evt.currentTarget.id);
+  },
+
+  //When game image is clicked
+  onImageClick: function (evt) {
+    console.log("IMAGE CLICKED");
   },
 
 });
@@ -64,18 +89,21 @@ function showInfoscreen(ID){
             Infotxt.setAttribute('text','value', gameInfo [2][1]);
             Titletxt.setAttribute('text','value', gameInfo [2][0]);
             downloadtxt.setAttribute('visible', 'false');
+            downloadArrow.setAttribute('scale', '0 0 0');
         break;
         case 'FroggoBtn':
             ImageElement.setAttribute('material','src', '#FroggoScreen');
             Infotxt.setAttribute('text','value', gameInfo [1][1]);
             Titletxt.setAttribute('text','value', gameInfo [1][0]);
             downloadtxt.setAttribute('visible', 'false');
+            downloadArrow.setAttribute('scale', '0 0 0');
         break;
         case 'GobbosBtn':
             ImageElement.setAttribute('material','src', '#GobbosScreen');
             Infotxt.setAttribute('text','value', gameInfo [0][1]);
             Titletxt.setAttribute('text','value', gameInfo [0][0]);
             downloadtxt.setAttribute('visible', 'true');
+            downloadArrow.setAttribute('scale', '1 1 1');
         break;
         default:
         console.log("Not implemented yet!");
