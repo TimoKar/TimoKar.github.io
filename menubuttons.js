@@ -41,11 +41,12 @@ AFRAME.registerComponent('menubuttons', {
 
   //When button is clicked
   onClick: function (evt) {
-    console.log("OnCLicked1!");
+    console.log("Button clicked.");
     evt.target.setAttribute('material', 'color', 'grey');
     changeScene(evt.currentTarget.id)
     showInfoscreen(evt.currentTarget.id);
     ChangeSkybox(evt.currentTarget.id);
+    
   },
 
   //When mouse goes over button
@@ -66,8 +67,9 @@ AFRAME.registerComponent('menubuttons', {
     for (var i = 0; i < buttons.length; ++i) {
       buttons[i].play();
       buttons[i].emit('mouseleave');
-      hideInfoscreen();
     }
+    hideInfoscreen();
+    resetImages();
   }
     
 

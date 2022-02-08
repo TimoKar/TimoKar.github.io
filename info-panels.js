@@ -1,6 +1,13 @@
 var buttonEls = [];
 var menuButtonEls = [];
 var gameInfo = new Array(3);
+var GobboImages = new Array();
+var currentGobboImage = 0;
+var RelicImages = new Array();
+var currentRelicImage = 0;
+var FroggoImages = new Array();
+var currentFroggoImage = 0;
+var currentInfo = "null";
 var infopanel;
 var ImageElement;
 var Infotxt;
@@ -24,8 +31,8 @@ AFRAME.registerComponent('info-panels', {
     leftArrow = document.querySelector('#ArrowLeft');
     rightArrow = document.querySelector('#ArrowRight');
     downloadArrow = document.querySelector('#DownloadArrow');
-
-    
+    //Adding relic images
+    document.querySelectorAll('.GameImages').forEach(findCorrectArray);
     //Setup eventlisteners
     leftArrow.addEventListener('click', this.onArrowClick);
     rightArrow.addEventListener('click', this.onArrowClick);
@@ -49,17 +56,26 @@ AFRAME.registerComponent('info-panels', {
 
   //When either left or right arrow is clicked
   onArrowClick: function (evt) {
-    console.log("ARROW CLICKED: " + evt.currentTarget.id);
     if(clickable){
         clickable = false;
         ImageElement.emit("fadegameimgout");
-
         if(evt.currentTarget.id == "ArrowRight"){
-                
-        
+            setTimeout(function () {
+                loadImageRight();
+                ImageElement.emit("fadegameimgin")
+            }, 150);
+            setTimeout(function () {
+                clickable = true;
+            }, 300);
         }else{
-        
-        
+            setTimeout(function () {
+                loadImageLeft();
+                ImageElement.emit("fadegameimgin")
+                clickable = true;
+            }, 150);
+            setTimeout(function () {
+                clickable = true;
+            }, 300);
         }
     }
   },
@@ -70,7 +86,82 @@ AFRAME.registerComponent('info-panels', {
   },
 
 });
+//Loads the previous image
+function loadImageLeft(){
+    if(currentInfo == "Relics"){
+        if(currentRelicImage - 1 == -1){
+            currentRelicImage = RelicImages.length - 1;
+        }else{
+            currentRelicImage--;
+        }
+        console.log("LOADING IMAGE: " + currentRelicImage + " image= " + '#' + RelicImages[currentRelicImage].getAttribute("id"));
+        ImageElement.setAttribute('material','src', '#' + RelicImages[currentRelicImage].getAttribute("id"));
+    }else if(currentInfo == "Froggo"){
+        if(currentFroggoImage - 1 == -1){
+            currentFroggoImage = FroggoImages.length - 1;
+        }else{
+            currentFroggoImage--;
+        }
+        console.log("LOADING IMAGE: " + currentFroggoImage + " image= " + '#' + FroggoImages[currentFroggoImage].getAttribute("id"));
+        ImageElement.setAttribute('material','src', '#' + FroggoImages[currentFroggoImage].getAttribute("id"));
+    }else if(currentInfo == "Gobbos"){
+        if(currentGobboImage - 1 == -1){
+            currentGobboImage = GobboImages.length - 1;
+        }else{
+            currentGobboImage--;
+        }
+        console.log("LOADING IMAGE: " + currentGobboImage + " image= " + '#' + GobboImages[currentGobboImage].getAttribute("id"));
+        ImageElement.setAttribute('material','src', '#' + GobboImages[currentGobboImage].getAttribute("id"));
+    }
+}
 
+//Loads the next image
+function loadImageRight(){
+    if(currentInfo == "Relics"){
+        if(currentRelicImage + 1 == RelicImages.length){
+            currentRelicImage = 0;
+        }else{
+            currentRelicImage++;
+        }
+        console.log("LOADING IMAGE: " + currentRelicImage + " image= " + '#' + RelicImages[currentRelicImage].getAttribute("id"));
+        ImageElement.setAttribute('material','src', '#' + RelicImages[currentRelicImage].getAttribute("id"));
+    }else if(currentInfo == "Froggo"){
+        if(currentFroggoImage + 1 == FroggoImages.length){
+            currentFroggoImage = 0;
+        }else{
+            currentFroggoImage++;
+        }
+        console.log("LOADING IMAGE: " + currentFroggoImage + " image= " + '#' + FroggoImages[currentFroggoImage].getAttribute("id"));
+        ImageElement.setAttribute('material','src', '#' + FroggoImages[currentFroggoImage].getAttribute("id"));
+    }else if(currentInfo == "Gobbos"){
+        if(currentGobboImage + 1 == GobboImages.length){
+            currentGobboImage = 0;
+        }else{
+            currentGobboImage++;
+        }
+        console.log("LOADING IMAGE: " + currentGobboImage + " image= " + '#' + GobboImages[currentGobboImage].getAttribute("id"));
+        ImageElement.setAttribute('material','src', '#' + GobboImages[currentGobboImage].getAttribute("id"));
+    }
+}
+
+function resetImages(){
+    currentGobboImage = 0;
+    currentRelicImage = 0;
+    currentFroggoImage = 0;
+}
+
+//Adds image files to correct arrays
+function findCorrectArray(element){
+        if(element.getAttribute('id').includes("Relics")){
+            RelicImages.push(element);
+        }else if (element.getAttribute('id').includes("Froggo")){
+            FroggoImages.push(element);
+        }else if (element.getAttribute('id').includes("Gobbo")){
+            GobboImages.push(element);
+        }else{
+            console.log("Does not contain: " + element.getAttribute("id"));
+        }
+}
 //Creates array with game information
 function createGameInfo(){
     
@@ -101,6 +192,7 @@ function showInfoscreen(ID){
             Titletxt.setAttribute('text','value', gameInfo [2][0]);
             downloadtxt.setAttribute('visible', 'false');
             downloadArrow.setAttribute('scale', '0 0 0');
+            currentInfo = "Relics";
         break;
         case 'FroggoBtn':
             ImageElement.setAttribute('material','src', '#FroggoScreen');
@@ -108,6 +200,7 @@ function showInfoscreen(ID){
             Titletxt.setAttribute('text','value', gameInfo [1][0]);
             downloadtxt.setAttribute('visible', 'false');
             downloadArrow.setAttribute('scale', '0 0 0');
+            currentInfo = "Froggo";
         break;
         case 'GobbosBtn':
             ImageElement.setAttribute('material','src', '#GobbosScreen');
@@ -115,6 +208,7 @@ function showInfoscreen(ID){
             Titletxt.setAttribute('text','value', gameInfo [0][0]);
             downloadtxt.setAttribute('visible', 'true');
             downloadArrow.setAttribute('scale', '1 1 1');
+            currentInfo = "Gobbos";
         break;
         default:
         console.log("Not implemented yet!");

@@ -24,11 +24,28 @@
                 <img id="Bluesky" src="https://i.ibb.co/TrFHgHY/Fullblue.png" alt="Blue" border="0" crossorigin="anonymous">
                 <img id="Red" src="https://i.ibb.co/Xb37R6P/red.png" alt="Red" border="0" crossorigin="anonymous">
 
-                <img id="FroggoScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Froggo.PNG" alt="Froggo" border="0" crossorigin="anonymous">
-                <img id="RelicsScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Relics%20of%20the%20abyss.PNG" alt="Relics" border="0" crossorigin="anonymous">
-                <img id="GobbosScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Too%20many%20gobbos.PNG" alt="Gobbos" border="0" crossorigin="anonymous">
-
                 <img id="Arrow" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Textures/ArrowGreen.png" alt="Dirt" border="0" crossorigin="anonymous">
+                
+                <!--Relics of the abyss images-->
+                <img id="RelicsScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Relics%20of%20the%20abyss.PNG" class="GameImages" border="0" crossorigin="anonymous">
+                <img id="RelicsCave" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Relics%20cave.jpg" class="GameImages" border="0" crossorigin="anonymous">
+                <img id="RelicsLights" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Relics%20lights.jpg" class="GameImages" border="0" crossorigin="anonymous">
+                <img id="RelicsMenu" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Relics%20main%20menu.jpg" class="GameImages" border="0" crossorigin="anonymous">
+                <img id="RelicsSurface" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Relics%20surface.jpg" class="GameImages" border="0" crossorigin="anonymous">
+                <img id="RelicsTemple" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Relics%20temple.jpg" class="GameImages" border="0" crossorigin="anonymous">
+                
+                <!--Froggo images-->
+                <img id="FroggoScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Froggo.PNG" class="GameImages" border="0" crossorigin="anonymous">
+                <img id="FroggoJump" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Froggo%20jump.PNG" class="GameImages" border="0" crossorigin="anonymous">
+                <img id="FroggoUnreal" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Froggo%20unreal.PNG" class="GameImages" border="0" crossorigin="anonymous">
+                
+                <!--Too many gobbos images-->
+                <img id="GobbosScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Too%20many%20gobbos.PNG" class="GameImages" border="0" crossorigin="anonymous">
+                <img id="GobbosSmith" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Gobbos%20smith.PNG" class="GameImages" border="0" crossorigin="anonymous">
+                <img id="GobbosTown" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Gobbos%20town.PNG" class="GameImages" border="0" crossorigin="anonymous">
+                <img id="GobbosTroll" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Gobbos%20troll%20fight.PNG" class="GameImages" border="0" crossorigin="anonymous">
+                <img id="GobbosFoolish" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Gobbos%20foolish%20skeleton.PNG" class="GameImages" border="0" crossorigin="anonymous">
+
 
                 <!--Froggo assets-->
                 <a-asset-item id="ColoredBarrel" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/BarrelColored.glb"></a-asset-item>
@@ -124,8 +141,8 @@
                             class="raycastable"
                             material="src: #FroggoScreen" 
                             visible="true"
-                            animation__fadeGameImgIn="startEvents: fadegameimgin; property: material.opacity; from: 0; to: 1; dur: 100;"
-                            animation__fadeGameImgOut="startEvents: fadegameimgout; property: material.opacity; from: 1; to: 0; dur: 100;">
+                            animation__fadeGameImgIn="startEvents: fadegameimgin; property: material.opacity; from: 0; to: 1; dur: 150;"
+                            animation__fadeGameImgOut="startEvents: fadegameimgout; property: material.opacity; from: 1; to: 0; dur: 150;">
                         </a-entity>
                         <a-entity id="ArrowLeft" 
                             mixin="GreenArrow"
