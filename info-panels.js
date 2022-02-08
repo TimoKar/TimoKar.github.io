@@ -9,7 +9,7 @@ var downloadtxt;
 var leftArrow;
 var rightArrow;
 var downloadArrow;
-
+var clickable = true;
 AFRAME.registerComponent('info-panels', {
   init: function () {
   console.log("Infopanel found... initialyzing...");  
@@ -25,8 +25,7 @@ AFRAME.registerComponent('info-panels', {
     rightArrow = document.querySelector('#ArrowRight');
     downloadArrow = document.querySelector('#DownloadArrow');
 
-    console.log("TEST: " + leftArrow);
-    console.log("TEST: " + rightArrow);
+    
     //Setup eventlisteners
     leftArrow.addEventListener('click', this.onArrowClick);
     rightArrow.addEventListener('click', this.onArrowClick);
@@ -51,6 +50,18 @@ AFRAME.registerComponent('info-panels', {
   //When either left or right arrow is clicked
   onArrowClick: function (evt) {
     console.log("ARROW CLICKED: " + evt.currentTarget.id);
+    if(clickable){
+        clickable = false;
+        ImageElement.emit("fadegameimgout");
+
+        if(evt.currentTarget.id == "ArrowRight"){
+                
+        
+        }else{
+        
+        
+        }
+    }
   },
 
   //When game image is clicked

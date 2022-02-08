@@ -123,7 +123,9 @@
                             mixin="InfoGameImagemix" 
                             class="raycastable"
                             material="src: #FroggoScreen" 
-                            visible="true">
+                            visible="true"
+                            animation__fadeGameImgIn="startEvents: fadegameimgin; property: material.opacity; from: 0; to: 1; dur: 100;"
+                            animation__fadeGameImgOut="startEvents: fadegameimgout; property: material.opacity; from: 1; to: 0; dur: 100;">
                         </a-entity>
                         <a-entity id="ArrowLeft" 
                             mixin="GreenArrow"
