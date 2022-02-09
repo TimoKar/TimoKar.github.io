@@ -67,7 +67,9 @@
 
                 <img id="DirtClay" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Textures/DirtClay.png" alt="Dirt" border="0" crossorigin="anonymous">
                 <!--Too many gobbos assets-->
-
+                <img id="WarriorImg" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Textures/stars_warrior.png" border="0" crossorigin="anonymous">
+                <img id="GobboImg" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Textures/stars_gobo.png" border="0" crossorigin="anonymous">
+                
 
 
                 <!-- mixin styling -->
@@ -397,7 +399,22 @@
             <a-entity id="GobboObjects" visible= "false"
             animation__fadeGobin="startEvents: fadeGobin; property: scale; from: 1 0 1; to: 1 1 1; dur: 1000;"
             animation__fadeGobout="startEvents: fadeGobout; property: scale; from: 1 1 1; to: 1 0 1; dur: 1000;">
-                
+                <a-entity id="WarriorFormation"
+                geometry="primitive: plane; width: 296; height: 467"
+                rotation="24.410 0 0"
+                position="-0.554 5.734 -9.062"
+                scale = "0.01 0.01 0.01"
+                material="src: #WarriorImg; shader: standard; transparent: true;"
+                shadow="receive: false, cast: false">
+                </a-entity>
+                <a-entity id="GobboFormation"
+                geometry="primitive: plane; width: 296; height: 467"
+                rotation="24.410 210.000 0"
+                position="2.121 7.250 7.586"
+                scale = "0.01 0.01 0.01"
+                material="src: #GobboImg; shader: standard; transparent: true;"
+                shadow="receive: false, cast: false">
+                </a-entity>
             </a-entity>
 
 
