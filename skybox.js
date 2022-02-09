@@ -64,9 +64,9 @@ function ChangeSkybox(backgroundnumberin) {
             lastBtn = "Gobbos";
             setTimeout(fade)
             setTimeout(function () {
-                backgroundEl1.setAttribute('src', '#Red');
+                backgroundEl1.setAttribute('src', '#Starsky');
             }, 1000);
-            backgroundEl.setAttribute('src', '#Red');
+            backgroundEl.setAttribute('src', '#Starsky');
 
         } else {
             console.log(backgroundEl.src);
