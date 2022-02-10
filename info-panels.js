@@ -51,7 +51,12 @@ AFRAME.registerComponent('info-panels', {
   //When infopanel is clicked
   onDownloadArrowClick: function (evt) {
     console.log("INFOPANEL CLICKED");
-    window.open('https://github.com/TimoKar/Gobbos', '_blank');
+    if(currentInfo == "Gobbos"){
+        window.open('https://github.com/TimoKar/Gobbos', '_blank');
+    }else if (currentInfo == "Relics"){
+        window.open('https://www.theseus.fi/handle/10024/504732', '_blank');
+    }
+    
   },
 
   //When either left or right arrow is clicked
@@ -190,8 +195,9 @@ function showInfoscreen(ID){
             ImageElement.setAttribute('material','src', '#RelicsScreen');
             Infotxt.setAttribute('text','value', gameInfo [2][1]);
             Titletxt.setAttribute('text','value', gameInfo [2][0]);
-            downloadtxt.setAttribute('visible', 'false');
-            downloadArrow.setAttribute('scale', '0 0 0');
+            downloadtxt.setAttribute('visible', 'true');
+            downloadtxt.setAttribute('text', 'value', "Click on this arrow to open thesis page.")
+            downloadArrow.setAttribute('scale', '1 1 1');
             currentInfo = "Relics";
         break;
         case 'FroggoBtn':
@@ -200,6 +206,7 @@ function showInfoscreen(ID){
             Titletxt.setAttribute('text','value', gameInfo [1][0]);
             downloadtxt.setAttribute('visible', 'false');
             downloadArrow.setAttribute('scale', '0 0 0');
+            downloadtxt.setAttribute('text', 'value', "Click on this arrow to open download page.")
             currentInfo = "Froggo";
         break;
         case 'GobbosBtn':
@@ -207,6 +214,7 @@ function showInfoscreen(ID){
             Infotxt.setAttribute('text','value', gameInfo [0][1]);
             Titletxt.setAttribute('text','value', gameInfo [0][0]);
             downloadtxt.setAttribute('visible', 'true');
+            downloadtxt.setAttribute('text', 'value', "Click on this arrow to open download page.")
             downloadArrow.setAttribute('scale', '1 1 1');
             currentInfo = "Gobbos";
         break;
