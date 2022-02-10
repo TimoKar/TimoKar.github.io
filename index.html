@@ -122,8 +122,13 @@
                 animation__fadeout="startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;">
             </a-sky>
 
-            <a-entity light="type: ambient; color: white; intensity: 1" position="0 0 0"></a-entity>
-            <a-entity light="type: point; color: white; intensity: 2; castShadow:true; decay:  2.540; distance:  14.050; shadowRadius:  10" position="0 2 0.5"></a-entity>
+            <a-entity id="AmbientLight" light="type: ambient; color: white; intensity: 1" position="0 0 0"
+            animation__fadein="startEvents: fadein; property: light.intensity; from: 0.5; to: 1; dur: 100;"
+            animation__fadeout="startEvents: fadeout; property: light.intensity; from: 1; to: 0.5; dur: 100;"></a-entity>
+
+            <a-entity id="Light" light="type: point; color: white; intensity: 2; castShadow:true; decay:  2.540; distance:  14.050; shadowRadius:  10" position="0 2 0.5"
+            animation__fadein="startEvents: fadein; property: light.intensity; from: 1; to: 2; dur: 100;"
+            animation__fadeout="startEvents: fadeout; property: light.intensity; from: 2; to: 1; dur: 100;"></a-entity>
 
             <!--User camera-->
             <a-entity id= "MainCam" look-controls="reverseMouseDrag: true" class="raycastable" camera="" position="" wasd-controls-enabled="false" rotation="-11.11538122553796 15.240677350479807 0" mouse-cursor cursor="rayOrigin: mouse;  fuse: false" raycaster="objects: .raycastable" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="">
@@ -405,15 +410,23 @@
                 rotation="24.410 0 0"
                 position="-0.554 5.734 -9.062"
                 scale = "0.01 0.01 0.01"
-                material="src: #WarriorImg; shader: standard; transparent: true;"
+                material="src: #WarriorImg; shader: flat; transparent: true;"
                 shadow="receive: false, cast: false">
                 </a-entity>
                 <a-entity id="GobboFormation"
                 geometry="primitive: plane; width: 296; height: 467"
                 rotation="24.410 210.000 0"
-                position="2.121 7.250 7.586"
+                position="1.616 7.529 7.586"
                 scale = "0.01 0.01 0.01"
-                material="src: #GobboImg; shader: standard; transparent: true;"
+                material="src: #GobboImg; shader: flat; transparent: true;"
+                shadow="receive: false, cast: false">
+                </a-entity>
+                <a-entity id="WarriorFormation"
+                geometry="primitive: plane; width: 100; height: 100"
+                rotation="90 0 0"
+                position="0 10 0"
+                scale = "0.08 0.08 0.08"
+                material="src: #Moon; shader: flat; transparent: true;"
                 shadow="receive: false, cast: false">
                 </a-entity>
             </a-entity>
