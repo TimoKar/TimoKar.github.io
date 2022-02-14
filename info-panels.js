@@ -17,6 +17,9 @@ var leftArrow;
 var rightArrow;
 var downloadArrow;
 var clickable = true;
+var introScreen;
+var introBtn;
+
 AFRAME.registerComponent('info-panels', {
   init: function () {
   console.log("Infopanel found... initialyzing...");  
@@ -31,6 +34,8 @@ AFRAME.registerComponent('info-panels', {
     leftArrow = document.querySelector('#ArrowLeft');
     rightArrow = document.querySelector('#ArrowRight');
     downloadArrow = document.querySelector('#DownloadArrow');
+    introScreen = document.querySelector('#IntroScreen');
+    introBtn = document.querySelector('#IntroScreenBtn');
     //Adding relic images
     document.querySelectorAll('.GameImages').forEach(findCorrectArray);
     //Setup eventlisteners
@@ -38,7 +43,7 @@ AFRAME.registerComponent('info-panels', {
     rightArrow.addEventListener('click', this.onArrowClick);
     downloadArrow.addEventListener('click', this.onDownloadArrowClick);
     ImageElement.addEventListener('click', this.onImageClick);
-
+    introBtn.addEventListener('click', this.onInfoBtnClick);
     //Setup infopanel & print data
     this.el.object3D.renderOrder = 9999999;
     this.el.object3D.depthTest = false;
@@ -57,6 +62,14 @@ AFRAME.registerComponent('info-panels', {
         window.open('https://www.theseus.fi/handle/10024/504732', '_blank');
     }
     
+  },
+
+  //When info button is clicked
+  onInfoBtnClick: function (evt) {
+    introScreen.setAttribute('visible', 'true');
+    introScreen.setAttribute('scale', '1 1 1')
+    infopanel.scale.set(0.001, 0.001, 0.001);
+    infopanel.visible = false;
   },
 
   //When either left or right arrow is clicked
@@ -190,6 +203,8 @@ function createGameInfo(){
 
 function showInfoscreen(ID){
     //Setting infopanel data
+    introScreen.setAttribute('visible', 'false');
+    introScreen.setAttribute('scale', '0.001 0.001 0.001')
     switch(ID){
         case 'RelicsBtn':
             ImageElement.setAttribute('material','src', '#RelicsScreen');
@@ -232,4 +247,7 @@ function hideInfoscreen(){
     //Hiding infopanel
     infopanel.scale.set(0.001, 0.001, 0.001);
     infopanel.visible = false;
+
+    introScreen.setAttribute('visible', 'false');
+    introScreen.setAttribute('scale', '0.001 0.001 0.001')
 }

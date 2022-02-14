@@ -27,6 +27,7 @@
                 <img id="Moon" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Textures/Moon.png" border="0" crossorigin="anonymous">
 
                 <img id="Arrow" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Textures/ArrowGreen.png" alt="Dirt" border="0" crossorigin="anonymous">
+                <img id="Icon" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Objects/Textures/Icon.png" alt="Dirt" border="0" crossorigin="anonymous">
                 
                 <!--Relics of the abyss images-->
                 <img id="RelicsScreen" src="https://raw.githubusercontent.com/TimoKar/TimoKar.github.io/master/Images/Relics%20of%20the%20abyss.PNG" class="GameImages" border="0" crossorigin="anonymous">
@@ -186,6 +187,44 @@
                                     visible="true">
                                 </a-entity>
                         </a-entity>
+                </a-entity>
+                <a-entity   
+                    id="IntroScreen"
+                    visible = "true"
+                    class="raycastable"
+                    position="0 0 -0.31"
+                    geometry="primitive: plane; width: 0.42; height: 0.42"
+                    material="color: black; shader: flat">
+                    <a-entity
+                        visible = "true"
+                        position="0 0 0.01"
+                        geometry="primitive: plane; width: 0.40; height: 0.40"
+                        material="color: #3179b0; shader: flat">
+                    </a-entity>
+                    <a-entity
+                        position="-0.19 0.19 0.01"
+                        text="shader: msdf; negate: false; anchor: left; width: 0.4;font: mozillavr; color: black; value: Welcome to my portfolio page." > 
+                    </a-entity>
+                    <a-entity 
+                        position="-0.18 0.16 0.01"
+                        scale= "0.35 0.35 0.35"
+                        text="baseline: top; negate: false; shader: msdf; anchor: left; font:aileronsemibold; color: black; 
+                        value: Hi! First of all, thank you for checking my portfolio out. My name is Timo Karvonen and i live in eastern Finland Joensuu. My passion lies in programming and game desing, but i also like to teach and work in groups. 
+                         
+                        The idea behind this page was to showcase some of my game projects and their enviroments in 360 degree enviroment. Here's some tips on how to use this page:
+                        - Move the camera around by clicking and draging on the background.
+                        - Close popup windows by clicking on the background.
+                        - Some popup windows have green arrows with different functions when you click on them.
+                        - You can reopen this info window by clicking the ? icon on top right.">
+                    </a-entity>
+                </a-entity>
+                <a-entity   
+                    id="IntroScreenBtn"
+                    visible = "true"
+                    class="raycastable"
+                    position="0.464 0.2 -0.30"
+                    geometry="primitive: plane; width: 0.05; height: 0.05"
+                    material="src: #Icon; shader: flat; transparent: true">>
                 </a-entity>
             
             </a-entity>
